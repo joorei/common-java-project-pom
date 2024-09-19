@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.codeturnery</groupId>
 	<artifactId>common-java-project-pom</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<packaging>pom</packaging>
 	<name>Basic Java project POM</name>
 	<description>Provides common Maven configuration for Java ${java.version} projects.</description>
@@ -95,6 +95,16 @@
 					<execution>
 						<id>attach-all-javadocs</id>
 						<configuration>
+							<additionalOptions>
+								<!-- For most projects documenting every
+								member and method is not feasable, so we
+								silence "missing" warnings for the developer
+								documentation. Warnings for the user
+								documentation (i.e. public members and
+								methods) will still be shown by the
+								"attach-public-javadocs" configured below -->
+								<additionalOption>-Xdoclint:all,-missing</additionalOption>
+							</additionalOptions>
 							<show>private</show>
 							<outputDirectory>${project.reporting.outputDirectory}/dev-javadoc</outputDirectory>
 						</configuration>
@@ -105,6 +115,9 @@
 					<execution>
 						<id>attach-public-javadocs</id>
 						<configuration>
+							<additionalOptions>
+								<additionalOption>-Xdoclint:all</additionalOption>
+							</additionalOptions>
 							<show>public</show>
 							<outputDirectory>${project.reporting.outputDirectory}/user-javadoc</outputDirectory>
 						</configuration>
