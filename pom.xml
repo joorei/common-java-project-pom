@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.codeturnery</groupId>
 	<artifactId>common-java-project-pom</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<packaging>pom</packaging>
 	<name>Basic Java project POM</name>
 	<description>Provides common Maven configuration for Java ${java.version} projects.</description>
@@ -107,8 +107,6 @@
 							</additionalOptions>
 							<show>private</show>
 							<outputDirectory>${project.reporting.outputDirectory}/dev-javadoc</outputDirectory>
-							<!-- Avoid "[WARNING] artifact org.codeturnery:java-toolbox:javadoc:javadoc:0.3.1 already attached, replace previous instance"-->
-							<attach>false</attach>
 						</configuration>
 						<goals>
 							<goal>jar</goal>
